@@ -1,0 +1,321 @@
+\documentclass[a4paper]{article}
+\usepackage[margin=0in]{geometry}
+\usepackage{tikz}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{xcolor}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+
+\usetikzlibrary{calc,decorations.pathmorphing,patterns,positioning}
+
+\begin{document}
+\pagestyle{empty}
+
+\begin{tikzpicture}[remember picture,overlay]
+    % Define colors
+    \definecolor{deepblue}{RGB}{20,50,120}
+    \definecolor{lightblue}{RGB}{100,150,220}
+    \definecolor{accent}{RGB}{220,100,50}
+    \definecolor{gold}{RGB}{255,215,0}
+    
+    % Define background pastel color
+    \definecolor{pastelbackground}{RGB}{246,165,0}
+    
+    % Solid pastel background
+    \fill[pastelbackground] 
+        (current page.north west) rectangle (current page.south east);
+    
+    % Decorative geometric elements
+    \foreach \i in {0,1,2,3,4} {
+        \draw[color=accent, opacity=0.3, line width=2pt] 
+            ([xshift=\i*2cm, yshift=-\i*1.5cm]current page.north west) 
+            -- ++(4cm,-3cm);
+    }
+    
+    % Circular mathematical elements
+    \foreach \i in {1,2,3} {
+        \draw[color=gold, opacity=0.4, line width=1.5pt] 
+            ([xshift=15cm+\i*1cm, yshift=-8cm-\i*2cm]current page.north west) 
+            circle (0.8cm);
+    }
+    
+    % Title rectangle with gold border
+    \fill[white, opacity=0.95] 
+        ([xshift=-7cm, yshift=-2cm]current page.north) 
+        rectangle 
+        ([xshift=7cm, yshift=-6cm]current page.north);
+    
+    \draw[color=gold, line width=3pt] 
+        ([xshift=-7cm, yshift=-2cm]current page.north) 
+        rectangle 
+        ([xshift=7cm, yshift=-6cm]current page.north);
+    
+    % Title section
+    \node[black, align=center, font=\fontsize{36}{42}\selectfont\bfseries] 
+        at ([yshift=-4cm]current page.north) {
+        \textsc{Advanced Mathematics}\\
+        \vspace{0.3cm}
+        {\fontsize{20}{24}\selectfont\textit{Theory and Applications}}
+    };
+    
+    % Gray publisher strip at bottom
+    \fill[gray!40] 
+        ([yshift=3cm]current page.south west) 
+        rectangle 
+        ([yshift=1cm]current page.south east);
+    
+    % Author in publisher strip
+    \node[black, align=center, font=\fontsize{16}{20}\selectfont\bfseries] 
+        at ([yshift=2cm]current page.south) {
+        \textsc{Author Name}
+    };
+    
+    % Define pastel colors for formula containers
+    \definecolor{pastelblue}{RGB}{173,216,230}
+    \definecolor{pastelgreen}{RGB}{152,251,152}
+    \definecolor{pastelpink}{RGB}{255,182,193}
+    \definecolor{pastelyellow}{RGB}{255,255,224}
+    \definecolor{pastellavender}{RGB}{230,230,250}
+    \definecolor{pastelpeach}{RGB}{255,218,185}
+    \definecolor{pastelcyan}{RGB}{224,255,255}
+    
+    % Mathematical equations in pastel containers - positioned in grid
+    
+    % Euler's identity (top left)
+    \fill[pastelblue, rounded corners=5pt] 
+        ([xshift=-6.5cm, yshift=-8cm]current page.north) 
+        rectangle 
+        ([xshift=-2.5cm, yshift=-10cm]current page.north);
+    \node[black, align=center, font=\fontsize{12}{16}\selectfont] 
+        at ([xshift=-4.5cm, yshift=-9cm]current page.north) {
+        $e^{i\pi} + 1 = 0$\\
+        {\small\textit{Euler's Identity}}
+    };
+    
+    % Fundamental theorem of calculus (top center)
+    \fill[pastelgreen, rounded corners=5pt] 
+        ([xshift=-2cm, yshift=-8cm]current page.north) 
+        rectangle 
+        ([xshift=2cm, yshift=-10cm]current page.north);
+    \node[black, align=center, font=\fontsize{12}{16}\selectfont] 
+        at ([xshift=0cm, yshift=-9cm]current page.north) {
+        $\int_a^b f'(x)\,dx = f(b) - f(a)$\\
+        {\small\textit{Fundamental Theorem}}
+    };
+    
+    % Quadratic formula (top right)
+    \fill[pastelpink, rounded corners=5pt] 
+        ([xshift=2.5cm, yshift=-8cm]current page.north) 
+        rectangle 
+        ([xshift=6.5cm, yshift=-10cm]current page.north);
+    \node[black, align=center, font=\fontsize{12}{16}\selectfont] 
+        at ([xshift=4.5cm, yshift=-9cm]current page.north) {
+        $x = \frac{-b \pm \sqrt{b^2-4ac}}{2a}$\\
+        {\small\textit{Quadratic Formula}}
+    };
+    
+    % Taylor series (middle left)
+    \fill[pastelyellow, rounded corners=5pt] 
+        ([xshift=-6.5cm, yshift=-11.5cm]current page.north) 
+        rectangle 
+        ([xshift=-2.5cm, yshift=-13.5cm]current page.north);
+    \node[black, align=center, font=\fontsize{11}{14}\selectfont] 
+        at ([xshift=-4.5cm, yshift=-12.5cm]current page.north) {
+        $f(x) = \sum_{n=0}^{\infty} \frac{f^{(n)}(a)}{n!}(x-a)^n$\\
+        {\small\textit{Taylor Series}}
+    };
+    
+    % Gaussian integral (middle center)
+    \fill[pastellavender, rounded corners=5pt] 
+        ([xshift=-2cm, yshift=-11.5cm]current page.north) 
+        rectangle 
+        ([xshift=2cm, yshift=-13.5cm]current page.north);
+    \node[black, align=center, font=\fontsize{12}{16}\selectfont] 
+        at ([xshift=0cm, yshift=-12.5cm]current page.north) {
+        $\int_{-\infty}^{\infty} e^{-x^2} dx = \sqrt{\pi}$\\
+        {\small\textit{Gaussian Integral}}
+    };
+    
+    % Pythagorean theorem (middle right)
+    \fill[pastelpeach, rounded corners=5pt] 
+        ([xshift=2.5cm, yshift=-11.5cm]current page.north) 
+        rectangle 
+        ([xshift=6.5cm, yshift=-13.5cm]current page.north);
+    \node[black, align=center, font=\fontsize{12}{16}\selectfont] 
+        at ([xshift=4.5cm, yshift=-12.5cm]current page.north) {
+        $a^2 + b^2 = c^2$\\
+        {\small\textit{Pythagorean Theorem}}
+    };
+    
+    % Chain rule (bottom center)
+    \fill[pastelcyan, rounded corners=5pt] 
+        ([xshift=-2.5cm, yshift=-15cm]current page.north) 
+        rectangle 
+        ([xshift=2.5cm, yshift=-17cm]current page.north);
+    \node[black, align=center, font=\fontsize{11}{14}\selectfont] 
+        at ([xshift=0cm, yshift=-16cm]current page.north) {
+        $\frac{d}{dx}[f(g(x))] = f'(g(x)) \cdot g'(x)$\\
+        {\small\textit{Chain Rule}}
+    };
+    
+    % Decorative border
+    \draw[white, line width=3pt, opacity=0.8] 
+        ([xshift=1cm, yshift=-1cm]current page.north west) 
+        rectangle 
+        ([xshift=-1cm, yshift=1cm]current page.south east);
+        
+    % Inner border
+    \draw[color=gold, line width=1pt, opacity=0.6] 
+        ([xshift=1.2cm, yshift=-1.2cm]current page.north west) 
+        rectangle 
+        ([xshift=-1.2cm, yshift=1.2cm]current page.south east);
+    
+\end{tikzpicture}
+
+\newpage
+
+% Back cover
+\begin{tikzpicture}[remember picture,overlay]
+    % Define colors
+    \definecolor{deepblue}{RGB}{20,50,120}
+    \definecolor{lightblue}{RGB}{100,150,220}
+    \definecolor{accent}{RGB}{220,100,50}
+    \definecolor{gold}{RGB}{255,215,0}
+    
+    % Define background pastel color
+    \definecolor{pastelbackground}{RGB}{245,245,250}
+    % Background gradient (reversed)
+    \fill[left color=lightblue, right color=deepblue] 
+        (current page.north west) rectangle (current page.south east);
+    
+    % Decorative elements
+    \foreach \i in {0,1,2,3} {
+        \draw[color=accent, opacity=0.2, line width=1.5pt] 
+            ([xshift=\i*3cm, yshift=-\i*2cm]current page.north east) 
+            -- ++(-5cm,-4cm);
+    }
+    
+    % Back cover content
+    \node[white, align=justify, font=\fontsize{14}{18}\selectfont, text width=12cm] 
+        at (current page.center) {
+        \textbf{About This Book}\\[0.5cm]
+        
+        This comprehensive text provides a thorough exploration of advanced mathematical concepts,
+        bridging the gap between theoretical foundations and practical applications. 
+        
+        \vspace{0.5cm}
+        
+        Key features include:
+        \begin{itemize}
+            \item Rigorous mathematical proofs and derivations
+            \item Extensive problem sets with detailed solutions
+            \item Real-world applications and case studies
+            \item Historical context and mathematical insights
+        \end{itemize}
+        
+        \vspace{0.5cm}
+        
+        Perfect for advanced undergraduate and graduate students, as well as professionals 
+        seeking to deepen their mathematical understanding.
+        
+        \vspace{1cm}
+        
+        \textbf{About the Author}\\[0.3cm]
+        
+        [Author bio goes here - replace with actual author information]
+    };
+    
+    % Publisher info (bottom)
+    \node[white, align=center, font=\fontsize{12}{16}\selectfont] 
+        at ([yshift=2cm]current page.south) {
+        \textsc{Academic Press}\\
+        \textit{Excellence in Mathematical Education}
+    };
+    
+    % ISBN placeholder
+    \node[white, align=left, font=\fontsize{10}{12}\selectfont] 
+        at ([xshift=2cm, yshift=1cm]current page.south west) {
+        ISBN: 978-0-123456-78-9
+    };
+    
+    % Decorative border
+    \draw[white, line width=3pt, opacity=0.8] 
+        ([xshift=1cm, yshift=-1cm]current page.north west) 
+        rectangle 
+        ([xshift=-1cm, yshift=1cm]current page.south east);
+        
+    % Mathematical symbol watermark
+    \node[white, opacity=0.1, font=\fontsize{120}{140}\selectfont] 
+        at ([xshift=2cm, yshift=2cm]current page.center) {
+        $\int$
+    };
+    
+\end{tikzpicture}
+
+\newpage
+
+% Book spine
+\begin{tikzpicture}[remember picture,overlay]
+    % Define spine width (typical paperback spine is about 1-2cm wide)
+    % For demonstration, we'll use a wider spine to show all elements clearly
+    % Define colors
+    \definecolor{deepblue}{RGB}{20,50,120}
+    \definecolor{lightblue}{RGB}{100,150,220}
+    \definecolor{accent}{RGB}{220,100,50}
+    \definecolor{gold}{RGB}{255,215,0}
+    
+    % Define background pastel color
+    \definecolor{pastelbackground}{RGB}{245,245,250}
+    % Solid pastel background for spine
+    \fill[pastelbackground] 
+        (current page.north west) rectangle (current page.south east);
+    
+    % Main spine rectangle with subtle border
+    \fill[white, opacity=0.9] 
+        ([xshift=1cm, yshift=-1cm]current page.north west) 
+        rectangle 
+        ([xshift=3cm, yshift=1cm]current page.south west);
+    
+    \draw[color=gold, line width=2pt] 
+        ([xshift=1cm, yshift=-1cm]current page.north west) 
+        rectangle 
+        ([xshift=3cm, yshift=1cm]current page.south west);
+    
+    % Title on spine (rotated to read when book is on shelf)
+    \node[black, align=center, font=\fontsize{16}{20}\selectfont\bfseries, rotate=90] 
+        at ([xshift=2cm, yshift=-8cm]current page.north) {
+        \textsc{Advanced Mathematics: Theory and Applications}
+    };
+    
+    % Author name on spine
+    \node[black, align=center, font=\fontsize{12}{16}\selectfont, rotate=90] 
+        at ([xshift=2cm, yshift=-18cm]current page.north) {
+        \textsc{Author Name}
+    };
+    
+    % Publisher at bottom of spine
+    \node[black, align=center, font=\fontsize{10}{12}\selectfont, rotate=90] 
+        at ([xshift=2cm, yshift=-25cm]current page.north) {
+        \textsc{Academic Press}
+    };
+    
+    % Decorative mathematical symbol
+    \node[color=accent, opacity=0.7, font=\fontsize{24}{28}\selectfont, rotate=90] 
+        at ([xshift=2cm, yshift=-3cm]current page.north) {
+        $\sum$
+    };
+    
+    % Small decorative elements
+    \foreach \i in {1,2,3} {
+        \fill[color=gold, opacity=0.5] 
+            ([xshift=1.3cm, yshift=-5cm-\i*0.5cm]current page.north west) 
+            circle (0.05cm);
+        \fill[color=gold, opacity=0.5] 
+            ([xshift=2.7cm, yshift=-5cm-\i*0.5cm]current page.north west) 
+            circle (0.05cm);
+    }
+    
+\end{tikzpicture}
+
+\end{document}

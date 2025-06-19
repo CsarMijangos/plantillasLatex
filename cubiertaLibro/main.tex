@@ -1,0 +1,192 @@
+%\documentclass[a4paper]{article}
+\documentclass[a4paper,openright,12pt,spanish]{book}
+\usepackage[spanish,es-noshorthands,es-nosectiondot]{babel}
+\selectlanguage{spanish}
+\usepackage[margin=0in]{geometry}
+\usepackage{tikz}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{xcolor}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+
+\usetikzlibrary{calc,decorations.pathmorphing,patterns,positioning}
+
+\begin{document}
+\pagestyle{empty}
+
+\begin{tikzpicture}[remember picture,overlay]
+    % Definir colores
+    \definecolor{deepblue}{RGB}{20,50,120}
+    \definecolor{lightblue}{RGB}{100,150,220}
+    \definecolor{accent}{RGB}{220,100,50}
+    \definecolor{gold}{RGB}{255,215,0}
+    
+    % Gradiente de color para el fondo
+    \fill[left color=deepblue, right color=lightblue] 
+        (current page.north west) rectangle (current page.south east);
+    
+    % Elemento decorativo: segmento diagonal
+    \foreach \i in {0,1,2,3,4} {
+        \draw[color=accent, opacity=0.3, line width=2pt] 
+            ([xshift=\i*2cm, yshift=-\i*1.5cm]current page.north west) 
+            -- ++(4cm,-3cm);
+    }
+    
+    % Elemento decorativo: circulos
+    \foreach \i in {1,2,3} {
+        \draw[color=gold, opacity=0.4, line width=1.5pt] 
+            ([xshift=15cm+\i*1cm, yshift=-8cm-\i*2cm]current page.north west) 
+            circle (0.8cm);
+    }
+    
+    % Título del libro
+    \node[white, align=center, font=\fontsize{40}{48}\selectfont\bfseries] 
+        at ([yshift=-4cm]current page.north) {
+        \textsc{Título Principal}\\
+        \vspace{0.5cm}
+        {\fontsize{24}{28}\selectfont\textit{Subtítulo}}
+    };
+    
+    % Autor
+    \node[white, align=center, font=\fontsize{18}{22}\selectfont] 
+        at ([yshift=-22cm]current page.north) {
+        \textsc{Nombre del Autor}
+    };
+    
+    % Ecuaciones matemáticas 
+    
+    % Identidad de Euler (arriba-derecha)
+    \node[white, align=center, font=\fontsize{16}{20}\selectfont] 
+        at ([xshift=4cm, yshift=-8cm]current page.north) {
+        $e^{i\pi} + 1 = 0$
+    };
+    
+    % Teorema Fundamental del Cálculo (izquierda)
+    \node[white, align=center, font=\fontsize{14}{18}\selectfont, rotate=15] 
+        at ([xshift=-6cm, yshift=-12cm]current page.north) {
+        $\int_a^b f'(x)\,dx = f(b) - f(a)$
+    };
+    
+    % Fórmula Cuadrática (derecha-abajo)
+    \node[white, align=center, font=\fontsize{14}{18}\selectfont] 
+        at ([xshift=5cm, yshift=-16cm]current page.north) {
+        $x = \frac{-b \pm \sqrt{b^2-4ac}}{2a}$
+    };
+    
+    % Serie de Taylor (abajo-izquierda)
+    \node[white, align=center, font=\fontsize{12}{16}\selectfont, rotate=-10] 
+        at ([xshift=-5cm, yshift=-18cm]current page.north) {
+        $f(x) = \sum_{n=0}^{\infty} \frac{f^{(n)}(a)}{n!}(x-a)^n$
+    };
+    
+    % Integral Gaussiana (centro)
+    \node[white, align=center, font=\fontsize{14}{18}\selectfont] 
+        at ([xshift=0cm, yshift=-14cm]current page.north) {
+        $\int_{-\infty}^{\infty} e^{-x^2} dx = \sqrt{\pi}$
+    };
+    
+    % Teorema de Pitágoras (arriba-izquierda)
+    \node[white, align=center, font=\fontsize{14}{18}\selectfont, rotate=25] 
+        at ([xshift=-4cm, yshift=-10cm]current page.north) {
+        $a^2 + b^2 = c^2$
+    };
+    
+    % Regla de la cadena (derecha)
+    \node[white, align=center, font=\fontsize{12}{16}\selectfont, rotate=-20] 
+        at ([xshift=6cm, yshift=-12cm]current page.north) {
+        $\frac{d}{dx}[f(g(x))] = f'(g(x)) \cdot g'(x)$
+    };
+    
+    % Borde decorativo
+    \draw[white, line width=3pt, opacity=0.8] 
+        ([xshift=1cm, yshift=-1cm]current page.north west) 
+        rectangle 
+        ([xshift=-1cm, yshift=1cm]current page.south east);
+        
+    % Borde interior
+    \draw[color=gold, line width=1pt, opacity=0.6] 
+        ([xshift=1.2cm, yshift=-1.2cm]current page.north west) 
+        rectangle 
+        ([xshift=-1.2cm, yshift=1.2cm]current page.south east);
+    
+\end{tikzpicture}
+
+\newpage
+
+% Cubierta trasera
+\begin{tikzpicture}[remember picture,overlay]
+    % Define colors
+    \definecolor{deepblue}{RGB}{20,50,120}
+    \definecolor{lightblue}{RGB}{100,150,220}
+    \definecolor{accent}{RGB}{220,100,50}
+    \definecolor{gold}{RGB}{255,215,0}
+    % Background gradient (reversed)
+    \fill[left color=lightblue, right color=deepblue] 
+        (current page.north west) rectangle (current page.south east);
+    
+    % Elementos decorativos
+    \foreach \i in {0,1,2,3} {
+        \draw[color=accent, opacity=0.2, line width=1.5pt] 
+            ([xshift=\i*3cm, yshift=-\i*2cm]current page.north east) 
+            -- ++(-5cm,-4cm);
+    }
+    
+    % Contenido
+    \node[white, align=justify, font=\fontsize{14}{18}\selectfont, text width=12cm] 
+        at (current page.center) {
+        \textbf{Acerca de este Libro}\\[0.5cm]
+        
+        Esta obra contiene una exploración completa de las ideas y conceptos sobre el tema X,
+        tendiendo un puente entre los fundamentos teóricos y las aplicaciones prácticas. 
+        
+        \vspace{0.5cm}
+        
+        Las características clave incluyen:
+        \begin{itemize}
+            \item Rigor en el manejo de las ideas
+            \item Explicaciones extensivas de los conceptos más complicados
+            \item Aplicaciones en el mundo real y casos de estudio
+            \item Contexto histórico y nuevas ideas
+        \end{itemize}
+        
+        \vspace{0.5cm}
+        
+        Perfecto para el estudiante avanzado y para entusiastas y profesionales que buscan
+        profundizar su entendimiento en la materia.
+        
+        \vspace{1cm}
+        
+        \textbf{Acerca del Autor}\\[0.3cm]
+        
+        [Breve Semblanza del Autor]
+    };
+    
+    % Información de la editorial (abajo)
+    \node[white, align=center, font=\fontsize{12}{16}\selectfont] 
+        at ([yshift=2cm]current page.south) {
+        \textsc{Publicación Independiente}\\
+        \textit{Del pueblo para el pueblo. El conocimiento nos hará libres.}
+    };
+    
+    % ISBN
+    \node[white, align=left, font=\fontsize{10}{12}\selectfont] 
+        at ([xshift=2cm, yshift=1cm]current page.south west) {
+        ISBN: 271-8-281828-45-9
+    };
+    
+    % Borde decorativo
+    \draw[white, line width=3pt, opacity=0.8] 
+        ([xshift=1cm, yshift=-1cm]current page.north west) 
+        rectangle 
+        ([xshift=-1cm, yshift=1cm]current page.south east);
+        
+    % MArca de agua con un símbolo matemático
+    \node[white, opacity=0.1, font=\fontsize{120}{140}\selectfont] 
+        at ([xshift=2cm, yshift=2cm]current page.center) {
+        $\int f(x) dx$
+    };
+    
+\end{tikzpicture}
+
+\end{document}

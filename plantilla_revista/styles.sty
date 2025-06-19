@@ -1,0 +1,17 @@
+% Definición de estilos personalizados
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{styles}[2024/12/24 Revista Matemática]
+
+\input{preamble.tex}
+
+% Estilos de cabeceras y pies de página
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[LE,RO]{Revista Matemática - Número \MagazineNumber}
+\fancyfoot[CE,CO]{Página \thepage}
+
+% Colores personalizados
+\definecolor{maincolor}{HTML}{1D3557}
+\definecolor{secondarycolor}{HTML}{457B9D}
+

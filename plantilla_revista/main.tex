@@ -1,0 +1,30 @@
+\documentclass[11pt, twoside]{article}
+\usepackage{styles}
+
+% Información de la revista
+\input{metadata}
+
+\begin{document}
+
+% Portada
+\newgeometry{top=2cm,bottom=2cm,left=2cm,right=2cm}
+\pagecolor{maincolor} % Fondo llamativo para la portada
+\color{white} % Texto blanco para la portada
+\input{cover}
+\restoregeometry
+\nopagecolor % Restablece el fondo blanco para el resto del documento
+\color{black} % Restaura el color del texto a negro
+% Tabla de contenidos
+\tableofcontents
+\newpage
+
+% Artículos
+\input{articles/article1}
+\input{articles/article2}
+
+% Información adicional
+\section*{Créditos}
+\input{credits}
+
+\end{document}
+
